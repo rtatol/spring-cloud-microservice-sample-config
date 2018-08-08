@@ -29,3 +29,15 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:10000/eureka/
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: spring-cloud
+  resource: spring-cloud-api
+  public-client: true
+  security-constraints:
+    - authRoles:
+        - ROLE_SPRING_CLOUD
+      securityCollections:
+        - patterns:
+            - /*
